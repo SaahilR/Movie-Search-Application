@@ -23,7 +23,8 @@ import { MovieComponent } from './movie/movie.component';
     FormsModule,
     RouterModule.forRoot([
       { path: "", component: MoviesComponent },
-      { path: "movies/:id", component: MoviesComponent }
+      { path: "movies/:id", component: MovieComponent },
+      { path: "**", component: MoviesComponent }
     ])
   ],
   providers: [MovieService],

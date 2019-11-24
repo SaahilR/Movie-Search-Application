@@ -1,33 +1,32 @@
 import { MovieService } from './../movie.service';
-import { Component } from '@angular/core';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent {
+export class MoviesComponent{
   popularMovies: any[];
   theaterMovies: any[];
   searchStr: string;
   searchRes: any[];
 
-  constructor(private _movieService: MovieService) {
-    this._movieService.getPopular().subscribe((res:any) => {
+  constructor(private service: MovieService) {
+    this.service.getPopular().subscribe((res:any) => {
       this.popularMovies = res.results;
-      console.log(res);
+      console.log(res.results);
     });
 
-    this._movieService.getInTheaters().subscribe((res:any) => {
+    this.service.getInTheaters().subscribe((res:any) => {
       this.theaterMovies = res.results;
-      console.log(res);
+      console.log(res.results);
     });
 
   }
 
   searchMovies() {
-    this._movieService.searchMovies(this.searchStr).subscribe((res:any) => {
+    this.service.searchMovies(this.searchStr).subscribe((res:any) => {
       this.searchRes = res.results;
     })
   }
