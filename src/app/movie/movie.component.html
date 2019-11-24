@@ -1,21 +1,27 @@
+<br>
 <div *ngIf="movie">
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">{{ movie.title }}</h3>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-5">
-                    <img src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.original_name}}">
-                </div>
-                <div class="col-md-7">
-                    <p>
-                        Release Date: {{ movie.release_date }}
-                        <br>
-                        {{ movie.overview }}
-                        <br>
-                        Rating: {{ movie.vote_count }}
+    <div class="card border-info bg-light mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <img src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="{{movie.original_name}}">
+            </div>
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h4 class="card-title">{{ movie.title }}</h4>
+                    <p class="card-text ">
+                        <small class="text-muted">
+                            Release Date: {{ movie.release_date | date:long }}
+                            <br>
+                        </small>
+                        Rating: {{ movie.vote_average }} ({{ movie.vote_count }})
                     </p>
+                    <h5 class="card-text">
+                        {{ movie.overview }}
+                    </h5>
+                    <h6 class="card-text">Genres</h6>
+                    <small *ngFor="let genre of movie.genres" class="text-muted">
+                        {{ genre.name }}
+                    </small>
                 </div>
             </div>
         </div>
