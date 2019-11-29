@@ -1,3 +1,4 @@
+import { UrlTitlePipe } from './../url-title.pipe';
 import { MovieService } from './../movie.service';
 import { Component, OnInit } from '@angular/core';
 

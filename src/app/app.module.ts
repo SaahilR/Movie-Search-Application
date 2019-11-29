@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
+import { UrlTitlePipe } from './url-title.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    MovieComponent
+    MovieComponent,
+    UrlTitlePipe
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,7 @@ import { MovieComponent } from './movie/movie.component';
     FormsModule,
     RouterModule.forRoot([
       { path: "", component: MoviesComponent },
-      { path: "movies/:id", component: MovieComponent },
+      { path: "movies/:id/:name", component: MovieComponent },
       { path: "**", component: MoviesComponent }
     ])
   ],
