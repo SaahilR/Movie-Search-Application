@@ -8,7 +8,7 @@ export class MovieService {
   apiKey:string;
 
   constructor(private http: HttpClient) {
-    this.apiKey = '2ffbd1012c6daa75d5afab002330fdab';
+    this.apiKey = '<Insert Your API Key Here>';
     console.log('MovieService Initialized...');
   }
 
