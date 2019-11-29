@@ -10,7 +10,7 @@
                     <h4 class="card-title">{{ movie.title }}</h4>
                     <p class="card-text ">
                         <small class="text-muted">
-                            Release Date: {{ movie.release_date | date:long }}
+                            Release Date: {{ movie.release_date | date:'long' }}
                             <br>
                         </small>
                         Rating: {{ movie.vote_average }} ({{ movie.vote_count }})
